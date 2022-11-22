@@ -245,93 +245,93 @@ public class SDichevaTest {
         driver.quit();
     }
 
-    ////    TC_11_06
-    ////    1.  Открыть базовую ссылку
-    ////    2.  Нажать пункт меню Support → Ask a question
-    ////    3.  Оставить значение по умолчанию в checkbox Are you an OpenWeather user?
-    ////    4.  Оставить пустым поле Email
-    ////    5.  Заполнить поля  Subject, Message
-    ////    6.  Подтвердить CAPTCHA
-    ////    7.  Нажать кнопку Submit
-    ////    8.  Подтвердить, что в поле Email пользователю будет показана ошибка "can't be blank"
-    //
-    //    @Test
-    //    public void testErrorEmail() throws InterruptedException {
-    //        System.setProperty("webdriver.chrome.driver", "D:\\Programs\\chromedriver\\chromedriver.exe");
-    //        WebDriver driver = new ChromeDriver();
-    //
-    //        String url = "https://openweathermap.org/";
-    //        String subject = "Other";
-    //        String message = "Hi Lilu we are waiting for you";
-    //
-    //        String expectedResult = "can't be blank";
-    //
-    //
-    //        driver.get(url);
-    //
-    //        Thread.sleep(5000);
-    //        driver.manage().window().maximize();
-    //
-    //        WebElement clickOnSupport = driver.findElement(By.xpath("//div[@id='support-dropdown']"));
-    //        clickOnSupport.click();
-    //
-    //        String originalWindow = driver.getWindowHandle();
-    //        Thread.sleep(4000);
-    //        WebElement selectSubmenu_AskAQuestion = driver.findElement(By.xpath(
-    //                "//ul[@id='support-dropdown-menu']//a[@href='https://home.openweathermap.org/questions']"));
-    //        selectSubmenu_AskAQuestion.click();
-    //
-    //        Thread.sleep(4500);
-    //
-    //        for (String windowHandle : driver.getWindowHandles()) {
-    //            if (!originalWindow.contentEquals(windowHandle)) {
-    //                driver.switchTo().window(windowHandle);
-    //                break;
-    //            }
-    //        }
-    //        Thread.sleep(3000);
-    //
-    //        WebElement enterSubject = driver.findElement(By.xpath(
-    //                "//select[@class='form-control select required']"));
-    //
-    //        enterSubject.click();
-    //
-    //        enterSubject.sendKeys(subject);
-    //
-    //        Thread.sleep(4000);
-    //
-    //        WebElement enterMessage = driver.findElement(By.xpath(
-    //                "//textarea[@class='form-control text required']"));
-    //        enterMessage.click();
-    //        enterMessage.sendKeys(message);
-    //
-    //        Thread.sleep(5000);
-    //
-    //        String window2 = driver.getWindowHandle();
-    //
-    //        driver.switchTo().frame(driver.findElement(By.cssSelector("iframe[title='reCAPTCHA']")));
-    //
-    //        WebElement enterCaptcha = driver.findElement(By.xpath(
-    //                "//span[@class='recaptcha-checkbox goog-inline-block recaptcha-checkbox-unchecked "
-    //                        + "rc-anchor-checkbox']"));
-    //        enterCaptcha.click();
-    //
-    //        Thread.sleep(10000);
-    //
-    //        driver.switchTo().window(window2);
-    //
-    //        WebElement pressSubmit = driver.findElement(By.xpath(
-    //                "//input[@data-disable-with='Create Question form']"));
-    //        pressSubmit.click();
-    //
-    //        WebElement confirmErrorEmail = driver.findElement(By.xpath("//span[@class='help-block']"));
-    //
-    //        String actualResult = confirmErrorEmail.getText();
-    //
-    //        Assert.assertEquals(actualResult, expectedResult);
-    //
-    //        driver.quit();
-    //    }
+//        TC_11_06
+//        1.  Открыть базовую ссылку
+//        2.  Нажать пункт меню Support → Ask a question
+//        3.  Оставить значение по умолчанию в checkbox Are you an OpenWeather user?
+//        4.  Оставить пустым поле Email
+//        5.  Заполнить поля  Subject, Message
+//        6.  Подтвердить CAPTCHA
+//        7.  Нажать кнопку Submit
+//        8.  Подтвердить, что в поле Email пользователю будет показана ошибка "can't be blank"
+
+        @Test
+        public void testErrorEmail() throws InterruptedException {
+            System.setProperty("webdriver.chrome.driver", "D:\\Programs\\chromedriver\\chromedriver.exe");
+            WebDriver driver = new ChromeDriver();
+
+            String url = "https://openweathermap.org/";
+            String subject = "Other";
+            String message = "Hi Lilu we are waiting for you";
+
+            String expectedResult = "can't be blank";
+
+
+            driver.get(url);
+
+            Thread.sleep(5000);
+            driver.manage().window().maximize();
+
+            WebElement clickOnSupport = driver.findElement(By.xpath("//div[@id='support-dropdown']"));
+            clickOnSupport.click();
+
+            String originalWindow = driver.getWindowHandle();
+            Thread.sleep(4000);
+            WebElement selectSubmenu_AskAQuestion = driver.findElement(By.xpath(
+                    "//ul[@id='support-dropdown-menu']//a[@href='https://home.openweathermap.org/questions']"));
+            selectSubmenu_AskAQuestion.click();
+
+            Thread.sleep(4500);
+
+            for (String windowHandle : driver.getWindowHandles()) {
+                if (!originalWindow.contentEquals(windowHandle)) {
+                    driver.switchTo().window(windowHandle);
+                    break;
+                }
+            }
+            Thread.sleep(3000);
+
+            WebElement enterSubject = driver.findElement(By.xpath(
+                    "//select[@class='form-control select required']"));
+
+            enterSubject.click();
+
+            enterSubject.sendKeys(subject);
+
+            Thread.sleep(4000);
+
+            WebElement enterMessage = driver.findElement(By.xpath(
+                    "//textarea[@class='form-control text required']"));
+            enterMessage.click();
+            enterMessage.sendKeys(message);
+
+            Thread.sleep(5000);
+
+            String window2 = driver.getWindowHandle();
+
+            driver.switchTo().frame(driver.findElement(By.cssSelector("iframe[title='reCAPTCHA']")));
+
+            WebElement enterCaptcha = driver.findElement(By.xpath(
+                    "//span[@class='recaptcha-checkbox goog-inline-block recaptcha-checkbox-unchecked "
+                            + "rc-anchor-checkbox']"));
+            enterCaptcha.click();
+
+            Thread.sleep(10000);
+
+            driver.switchTo().window(window2);
+
+            WebElement pressSubmit = driver.findElement(By.xpath(
+                    "//input[@data-disable-with='Create Question form']"));
+            pressSubmit.click();
+
+            WebElement confirmErrorEmail = driver.findElement(By.xpath("//span[@class='help-block']"));
+
+            String actualResult = confirmErrorEmail.getText();
+
+            Assert.assertEquals(actualResult, expectedResult);
+
+            driver.quit();
+        }
 
 
     @Test //10
